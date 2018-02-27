@@ -1,0 +1,173 @@
+The Enigma Machine
+
+My coursework contains 11 classes:
+
+    -BasicRotor
+    -Bombe
+    -Convert
+    -EnigmaFile
+    -EnigmaMachine
+    -Plug
+    -PlugBoard
+    -Reflector
+    -Rotor
+    -TurnoverRotor
+    -UserReader
+
+    For the input and output, the text files input.txt and output.txt were used
+
+    In order to test the Enigma Machine, you have to uncomment the tests from the main method, in EnigmaMachine class.
+    The first three test are located in different methods in EnigmaMachine and can be tested by uncommenting them from the start() method and from the main.
+
+TEST 1
+
+  The Plugs that needed to be connected were:
+                 -[A-M]
+                 -[G-L]
+                 -[E-T]
+  The Rotors configuration was:
+                 -Rotors slot 0 = BasicRotor typeI , initial position 6
+                 -Slot 1 = BasicRotor typeII , initial position 12
+                 -slot 2 = BasicRotor typeIII , initial position 5
+  The Reflector type was:
+                 -ReflectorI
+
+  Encoded message = GFWIQH
+
+  The OUTPUT message is : BADGER
+
+
+TEST 2
+
+ The Plugs that needed to be connected were:
+                 -[B-C]
+                 -[R-I]
+                 -[S-M]
+                 -[A-F]
+  The Rotors configuration was:
+                 -Rotors slot 0 = BasicRotor typeIV , initial position 23
+                 -Slot 1 = BasicRotor typeV , initial position 4
+                 -slot 2 = BasicRotor typeII , initial position 9
+  The Reflector type was:
+                 -ReflectorII
+
+  Encoded message = GACIG
+
+  The OUTPUT message is : SNAKE
+
+
+TEST 3
+    The Plug that needed to be connected was:
+                -[Q-F]
+    The Rotors configuration was:
+                -Rotors slot 0 = TurnoverRotor typeI , initial position 23
+                -Slot 1 = TurnoverRotor typeII , initial position 11
+                -slot 2 = turnoverRotor typeIII , initial position 7
+    The Reflector type was:
+                -ReflectorI
+
+
+    Encoded message = OJVAYFGUOFIVOTAYRNIWJYQWMXUEJGXYGIFT
+    The OUTPUT message is : THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG
+
+
+
+
+CHALLENGE 1
+
+
+ The Plugs that needed to be connected ware:
+            -[D-?]
+            -[S-?]
+
+ The Rotors configuration was:
+            -Rotors slot 0 = BasicRotor typeIV , initial position 8
+            -Slot 1 = BasicRotor typeIII , initial position 4
+            -slot 2 = BasicRotor typeII , initial position 21
+
+ The Reflector type was:
+            -ReflectorI
+
+ Encoded message = JBZAQVEBRPEVPUOBXFLCPJQSYFJI
+ May contain the word ANSWER
+
+ My solution for this was to take any possible plug connection and test it. I searched for the word "ANSWER" and outputted all the solutions.
+ Even though there were more than just one favorable outputs (encrypted messages containing the word "ANSWER") after a clarification from the professor,
+ I understood that the message I was supposed to look for was the one containing the keyword "DAISY"
+ Thus, the OUTPUT is:DAISYDAISYGIVEMEYOURANSWERDO
+ And the correct combination for the plugs is :  [D-T]  and  [S-A]
+
+
+ CHALLENGE 2
+
+
+ The Plugs that needed to be connected ware:
+            -[H-L]
+            -[G-P]
+
+ The Rotors configuration was:
+            -Rotors slot 0 = BasicRotor typeV, initial position ?
+            -Slot 1 = BasicRotor typeIII , initial position ?
+            -slot 2 = BasicRotor typeII , initial position ?
+
+  The Reflector type was:
+            -ReflectorI
+
+  Encoded message = AVPBLOGHFRLTFELQEZQINUAXHTJMXDWERTTCHLZTGBFUPORNHZSLGZMJNEINTBSTBPPQFPMLSVKPETWFD
+  May contain the word ELECTRIC
+
+  Again, my solution was to use three for loops so that I can test each combination of positions until I find an output message containing the word "ELECTRIC"
+
+  The OUTPUT was WELLALWAYSBETOGETHERHOWEVERFARITSEEMSWELLALWAYSBETOGETHERTOGETHERINELECTRICDREAMS
+  Additionally, I found the position for the rotors that gave me the solution:
+                 First rotor was on position: 3
+                 Second rotor was on position: 9
+                 Third rotor was on position: 15
+
+
+
+ CHALLENGE 3
+
+ The Plugs that needed to be connected ware:
+                -[M-F]
+                -[O-I]
+
+ The Rotors configuration was:
+                -Rotors slot 0 = BasicRotor type? , initial position 22
+                -Slot 1 = BasicRotor type? , initial position 24
+                -slot 2 = BasicRotor type? , initial position 23
+
+ The Reflector type was:
+            -ReflectorI
+
+ Encoded message = WMTIOMNXDKUCQCGLNOIBUYLHSFQSVIWYQCLRAAKZNJBOYWW
+ May contain the word JAVA
+
+  My solution was to use again three for loops, going from 1 to 5. Using a Switch case, I converted the integers into the String type I needed to configure the Rotors.
+  Thus, I tested all possible combinations of types, until I found a message containing the word "JAVA".
+
+  The OUTPUT is : ILOVECOFFEEILOVETEAILOVETHEJAVAJIVEANDITLOVESME
+
+  To get this output, the good combination was :
+
+  First rotor type is: V
+  Second rotor type is: III
+  Third rotor type is: II
+
+EXTENSIONS
+
+I combined the first and the second extension and made another "test" that basically allows the user to create it's own Enigma Machine and encrypt his message.
+Basically, the user can costumize an Enigma Machine, creating as many plugs he wants and then introducing the data for the rotors and reflectors.
+Aditionally, I made several while loops that won't allow the user to move forward with the process if he doesn't input the right type of data.
+After this, the user can see his text being encoded live, meaning that he will see the encoded letter right after he types it.
+At the end, the full encrypted message will be printed.
+
+Moreover, helping messages were added to guide the user through the whole process.
+
+This can be found in the UserReader class and can be tested by uncommenting the right lines in the main
+
+Another Extension that I found quite useful was the one found in the Convert class and is applied to all the text inputed in the input.txt file.
+This extension allows the program to work properly even if wrong characters are introduced (such as space, comma, point, numbers).
+
+
+
